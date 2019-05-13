@@ -17,7 +17,13 @@ defmodule LearnPhoenixWeb.SessionController do
                 |> put_session(:customer_id, customer.id)
                 |> configure_session(renew: true)
                 |> put_flash(:info, "Login successful")
-                |> redirect(to: "/contract")
+                |> redirect(to: "/")
         end
+    end
+
+    def delete(conn,_) do
+        clear_session(conn)
+        |> put_flash(:info, "You have been logged out")
+        |> redirect(to: "/")
     end
 end

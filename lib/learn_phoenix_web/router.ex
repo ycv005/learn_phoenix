@@ -24,6 +24,7 @@ defmodule LearnPhoenixWeb.Router do
     post "/register", RegistrationController, :create
     get "/login", SessionController, :new
     post "/login", SessionController, :create
+    get "/logout", SessionController, :delete
 
     get "/contract/new", ContractController, :new
     post "/contract/new", ContractController, :create
