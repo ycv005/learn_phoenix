@@ -1,0 +1,11 @@
+<h2>Contract lists</h2>
+
+<ul>
+<%= for contract <- @contracts do %>
+
+    <li>
+        <%= contract.id %>
+    </li>
+
+<% end %>
+</ul>

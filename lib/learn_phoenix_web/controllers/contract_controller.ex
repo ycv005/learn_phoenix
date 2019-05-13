@@ -1,6 +1,8 @@
 defmodule LearnPhoenixWeb.ContractController do
     use LearnPhoenixWeb, :controller
+    import Ecto.Query
     alias LearnPhoenix.Vendor
+    alias LearnPhoenix.Repo
 
     def new(conn, _params) do
         changeset = Vendor.build_contract()
@@ -20,7 +22,9 @@ defmodule LearnPhoenixWeb.ContractController do
     end
 
     def index(conn, _params) do
-        render(conn, "show_contract_list.html")
+        contracts = Vendor.Contract |> order_by(asc: :EndsOn) |> Repo.all
+        IO.inspect(contracts)
+        render(conn, "show_contract_list.html", contracts: contracts)
     end
 
 end
