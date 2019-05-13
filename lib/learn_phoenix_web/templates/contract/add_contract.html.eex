@@ -1,0 +1,31 @@
+<h1>Add Contract</h1>
+<%= form_for @changeset, Routes.contract_path(@conn, :create), [as:
+:contract, id: "contract-form"], fn f -> %>
+    <div class="form-group">
+    <%= label f, :Vendor, class: "control-label" %>
+    <%= select f, :Vendor, ["Select": "", "Vodafone": "Vodafone", "O2": "O2", "Vattenfal": "Vattenfal", "McFit": "McFit", "Sky": "Sky"], class: "form-control", placeholder: "Vendor" %>
+    <%= error_tag f, :Vendor %>
+    </div>
+    <div class="form-group">
+    <%= label f, :Category, class: "control-label" %>
+    <%= select f, :Category, ["Select": "", "Vodafone-Internet": "Internet", "Vodafone-DSL": "DSL", "Vodafone-Phone": "Phone", "Vodafone-Mobile Phone": "Mobile Phone",
+            "O2-Internet": "Internet", "O2-DSL": "DSL", "Vattenfall-Electricity": "Electricity", "Vattenfall-Gas": "Gas", "McFit-Gym": "Gym", "Sky-Paid TV": "Paid TV" ], class: "form-control", placeholder: "Category" %>
+    <%= error_tag f, :Category %>
+    </div>
+
+    <div class="form-group">
+    <%= label f, :Cost, class: "control-label" %>
+    <%= number_input f, :Cost, placeholder: "Cost",
+    class: "form-control" %>
+    <%= error_tag f, :Cost %>
+    </div>
+
+    <div class="form-group">
+    <%= label f, :EndsOn, class: "control-label" %>
+    <%= date_select f, :EndsOn, placeholder: "EndsOn",
+    class: "form-control" %>
+    <%= error_tag f, :EndsOn %>
+    </div>
+
+<%= submit "Create", class: "btn btn-primary" %>
+<% end %>
