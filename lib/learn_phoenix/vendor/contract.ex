@@ -12,7 +12,7 @@ defmodule LearnPhoenix.Vendor.Contract do
   end
 
   @doc false
-  def changeset(contract, attrs) do
+  def changeset(contract, attrs \\ %{}) do
     contract
     |> cast(attrs, [:Vendor, :Category, :Cost, :EndsOn])
     |> validate_required([:Vendor, :Category, :Cost, :EndsOn])

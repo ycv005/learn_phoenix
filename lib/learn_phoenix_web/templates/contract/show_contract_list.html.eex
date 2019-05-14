@@ -5,6 +5,7 @@
 
     <li>
         <%= contract.id %>
+        <%= link "Edit",to: Routes.contract_path(@conn, :edit, contract) %>
     </li>
 
 <% end %>

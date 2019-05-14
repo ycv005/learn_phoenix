@@ -30,6 +30,8 @@ defmodule LearnPhoenixWeb.Router do
     post "/contract/new", ContractController, :create
 
     get "/contracts", ContractController, :index
+    get "/topic/:id/edit", ContractController, :edit
+    put "/topic/:id", ContractController, :update
   end
 
   # Other scopes may use custom stacks.
