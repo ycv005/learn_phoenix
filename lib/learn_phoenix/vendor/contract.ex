@@ -3,10 +3,10 @@ defmodule LearnPhoenix.Vendor.Contract do
   import Ecto.Changeset
 
   schema "contracts" do
-    field :Category, :string
-    field :Cost, :decimal
-    field :EndsOn, :date
-    field :Vendor, :string
+    field :category, :string
+    field :cost, :decimal
+    field :endson, :date
+    field :vendor, :string
 
     timestamps()
   end
@@ -14,7 +14,7 @@ defmodule LearnPhoenix.Vendor.Contract do
   @doc false
   def changeset(contract, attrs \\ %{}) do
     contract
-    |> cast(attrs, [:Vendor, :Category, :Cost, :EndsOn])
-    |> validate_required([:Vendor, :Category, :Cost, :EndsOn])
+    |> cast(attrs, [:vendor, :category, :cost, :endson])
+    |> validate_required([:vendor, :category, :cost, :endson])
   end
 end

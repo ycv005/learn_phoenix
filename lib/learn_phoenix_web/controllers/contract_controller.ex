@@ -23,8 +23,8 @@ defmodule LearnPhoenixWeb.ContractController do
     end
 
     def index(conn, _params) do
-        contracts = Contract |> order_by(asc: :EndsOn) |> Repo.all
-        # IO.inspect(contracts)
+        contracts = Contract |> order_by(asc: :endson) |> Repo.all
+        IO.inspect(contracts)
         render(conn, "show_contract_list.html", contracts: contracts)
     end
 
@@ -36,12 +36,8 @@ defmodule LearnPhoenixWeb.ContractController do
     end
 
     def update(conn, %{"id" => contract_id, "contract" => contract}) do
-        # old_contract = Repo.get(Contract, contract_id)
-        # changeset = Contract.changeset(old_contract, contract)
-
-        #in 1 line
-
-        changeset = Repo.get(Contract, contract_id) |> Contract.changeset(contract)
+        old_contract = Repo.get(Contract, contract_id)
+        changeset = Contract.changeset(old_contract, contract)
 
         case Repo.update(changeset) do
             {:ok, _topic} ->
@@ -49,7 +45,7 @@ defmodule LearnPhoenixWeb.ContractController do
                 |> put_flash(:info, "Contract Updated")
                 |> redirect(to: Routes.contract_path(conn, :index))
             {:error, changeset} ->
-                render conn, "edit.html", changeset: changeset
+                render conn, "edit.html", changeset: changeset, old_contract: old_contract
         end
 
     end

@@ -3,14 +3,12 @@ defmodule LearnPhoenix.Repo.Migrations.CreateContracts do
 
   def change do
     create table(:contracts) do
-      add :Vendor, :string
-      add :Category, :string
-      add :Cost, :decimal
-      add :EndsOn, :string
+      add :vendor, :string
+      add :category, :string
+      add :cost, :decimal
+      add :endson, :date
 
       timestamps()
     end
-
-
   end
 end

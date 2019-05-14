@@ -1,8 +1,14 @@
 <h1>Update the Contract</h1>
 <%= form_for @changeset, Routes.contract_path(@conn, :update, @contract), fn f -> %>
 
-<%= text_input f, :id, placeholder: "id" %>
-<% error_tag f, :id %>
+<%= text_input f, :vendor, placeholder: "vendor" %>
+<% error_tag f, :vendor %>
+<%= text_input f, :category, placeholder: "category" %>
+<% error_tag f, :category %>
+<%= text_input f, :cost, placeholder: "cost" %>
+<% error_tag f, :cost %>
+<%= text_input f, :endson, placeholder: "endson" %>
+<% error_tag f, :endson %>
 
 <%= submit "Submit" %>
 
