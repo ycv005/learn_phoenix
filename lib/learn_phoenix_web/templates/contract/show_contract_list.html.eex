@@ -1,5 +1,5 @@
 <h2>Contract lists</h2>
-<li><%= link "Add a Contract", to: Routes.contract_path(@conn, :new), class: "nav-link" %></li>
+<%= link "Add a Contract", to: Routes.contract_path(@conn, :new), class: "nav-link" %>
 <ul>
 <%= for contract <- @contracts do %>
 
@@ -8,6 +8,7 @@
         <%= contract.vendor %>
         <%= contract.category %>
         <%= contract.cost %>
+        <%= contract.endson %>
         <%= link "Edit",to: Routes.contract_path(@conn, :edit, contract) %>
     </li>
 

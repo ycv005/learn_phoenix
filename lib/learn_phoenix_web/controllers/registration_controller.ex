@@ -12,7 +12,7 @@ defmodule LearnPhoenixWeb.RegistrationController do
             {:ok, customer} ->
             conn
             |> put_flash(:info, "Registration successful")
-            |> redirect(to: "/contract")
+            |> redirect(to: "/contracts")
             {:error, changeset} ->
             conn
             |> render(:new, changeset: changeset)
